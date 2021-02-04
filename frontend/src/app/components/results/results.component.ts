@@ -7,9 +7,10 @@ import { catchError, switchMap } from 'rxjs/operators';
 import { MainService, Stats } from '../../services/main.service';
 
 function ImageURL(rollnum: string, userid: string) {
-    const iitkhome = `http://home.iitk.ac.in/~${ userid }/dp`;
+    const iitkhome = `https://home.iitk.ac.in/~${ userid }/dp`;
+    const pcluboaimage = `https://search.pclub.in/oaphoto/${ rollnum }_0.jpg`;
     const oaimage = `https://oa.cc.iitk.ac.in/Oa/Jsp/Photo/${ rollnum }_0.jpg`;
-    return `url("${ iitkhome }"), url("${ oaimage }")`;
+    return `url("${ iitkhome }"), url("${ pcluboaimage }"), url("${ oaimage }")`;
 }
 
 @Component({
