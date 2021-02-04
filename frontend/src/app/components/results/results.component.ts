@@ -46,8 +46,8 @@ export class ResultsComponent implements OnInit {
 
   get registrations() {
     const stats = this.stats;
-    const totalMales = stats.othermales + stats.y15males + stats.y16males + stats.y17males + stats.y18males + stats.y19males;
-    const totalFemales = stats.otherfemales + stats.y15females + stats.y16females + stats.y17females + stats.y18females + stats.y19females;
+    const totalMales = stats.othermales + stats.y17males + stats.y18males + stats.y19males + stats.y20males;
+    const totalFemales = stats.otherfemales + stats.y17females + stats.y18females + stats.y19females + stats.y20males;
     return [{
       name: 'Males',
       value: totalMales,
@@ -59,8 +59,8 @@ export class ResultsComponent implements OnInit {
 
   get hearts() {
     const stats = this.stats;
-    const totalMaleHearts = stats.othermaleHearts + stats.y15maleHearts + stats.y16maleHearts + stats.y17maleHearts + stats.y18maleHearts + stats.y19maleHearts;
-    const totalFemaleHearts = stats.otherfemaleHearts + stats.y15femaleHearts + stats.y16femaleHearts + stats.y17femaleHearts + stats.y18femaleHearts + stats.y19femaleHearts;
+    const totalMaleHearts = stats.othermaleHearts + stats.y17maleHearts + stats.y18maleHearts + stats.y19maleHearts + stats.y20maleHearts;
+    const totalFemaleHearts = stats.otherfemaleHearts + stats.y17femaleHearts + stats.y18femaleHearts + stats.y19femaleHearts + stats.y20femaleHearts;
     return [{
       name: 'Males',
       value: totalMaleHearts,
@@ -75,12 +75,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.otherfemaleHearts,
     }, {
-      name: 'Y15',
-      value: stats.y15femaleHearts,
-    }, {
-      name: 'Y16',
-      value: stats.y16femaleHearts,
-    }, {
       name: 'Y17',
       value: stats.y17femaleHearts,
     }, {
@@ -89,6 +83,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y19',
       value: stats.y19femaleHearts,
+    }, {
+      name: 'Y20',
+      value: stats.y20femaleHearts,
     }].reverse();
 
   }
@@ -99,12 +96,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.othermaleHearts,
     }, {
-      name: 'Y15',
-      value: stats.y15maleHearts,
-    }, {
-      name: 'Y16',
-      value: stats.y16maleHearts,
-    }, {
       name: 'Y17',
       value: stats.y17maleHearts,
     }, {
@@ -113,6 +104,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y19',
       value: stats.y19maleHearts,
+    }, {
+      name: 'Y20',
+      value: stats.y20maleHearts,
     }].reverse();
   }
 
@@ -122,12 +116,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.otherfemales,
     }, {
-      name: 'Y15',
-      value: stats.y15females,
-    }, {
-      name: 'Y16',
-      value: stats.y16females,
-    }, {
       name: 'Y17',
       value: stats.y17females,
     }, {
@@ -136,6 +124,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y19',
       value: stats.y19females,
+    }, {
+      name: 'Y20',
+      value: stats.y20females,
     }].reverse();
 
   }
@@ -146,12 +137,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.othermales,
     }, {
-      name: 'Y15',
-      value: stats.y15males,
-    }, {
-      name: 'Y16',
-      value: stats.y16males,
-    }, {
       name: 'Y17',
       value: stats.y17males,
     }, {
@@ -160,6 +145,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y19',
       value: stats.y19males,
+    }, {
+      name: 'Y20',
+      value: stats.y20males,
     }].reverse();
   }
 
