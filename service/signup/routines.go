@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"log"
 
 	"gopkg.in/mgo.v2"
@@ -89,6 +90,7 @@ func MailerService(Db PuppyDb, mail_channel chan User) {
 		m.SetBody("text/plain", msg)
 
 		d := gomail.NewDialer(EmailHost, EmailPortInt, EmailUser, EmailPass)
+		d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 		if err := d.DialAndSend(m); err != nil {
 			log.Println("ERROR: while mailing user ", u.Email, " ", u.Id)
 			log.Println(err)
