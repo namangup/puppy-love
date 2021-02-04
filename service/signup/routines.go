@@ -2,10 +2,11 @@ package main
 
 import (
 	"log"
-	"net/smtp"
 
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+
+	gomail "gopkg.in/mail.v2"
 )
 
 func MarkNotDirtyAlt(u User) mgo.Change {
@@ -72,23 +73,23 @@ func SignupService(
 
 func MailerService(Db PuppyDb, mail_channel chan User) {
 	mailCounter := 0
-	auth := smtp.PlainAuth("", EmailUser, EmailPass,
-		EmailHost)
 
 	for u := range mail_channel {
 		log.Println("Setting up smtp")
+		msg := "Use this token while signing up, and don't share it with anyone:\r\n" +
+			"    Token: " + u.AuthC + " \r\n\r\n" +
+			"Please ensure that you don't forget your password, as it will not be possible to recover your account if the password is lost.\r\n\r\n" +
+			"We sincerely wish that you find your puppy love!\r\n\r\n" +
+			"Regards,\r\nProgramming Club\r\n"
 
-		to := []string{u.Email + "@iitk.ac.in"}
-		msg := []byte("To: " + u.Email + "@iitk.ac.in" + "\r\n" +
-			"Subject: Puppy-Love authentication code\r\n" +
-			"\r\n" +
-			"Use this token while signing up, and don't share it with anyone.\n" +
-			"Token: " + u.AuthC + "\n" +
-			".\r\n")
-		err := smtp.SendMail(EmailHost+":"+EmailPort, auth,
-			EmailUser, to, msg)
+		m := gomail.NewMessage()
+		m.SetHeader("From", EmailUser)
+		m.SetHeader("To", u.Email+"@iitk.ac.in")
+		m.SetHeader("Subject", "Puppy Love authentication code")
+		m.SetBody("text/plain", msg)
 
-		if err != nil {
+		d := gomail.Dialer{Host: EmailHost, Port: EmailPortInt}
+		if err := d.DialAndSend(m); err != nil {
 			log.Println("ERROR: while mailing user ", u.Email, " ", u.Id)
 			log.Println(err)
 		} else {

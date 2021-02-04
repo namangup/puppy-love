@@ -3,12 +3,14 @@ package main
 import (
 	"log"
 	"os"
+	"strconv"
 )
 
 var EmailUser = os.Getenv("EMAIL_USER")
 var EmailPass = os.Getenv("EMAIL_PASS")
 var EmailHost = os.Getenv("EMAIL_HOST")
 var EmailPort = os.Getenv("EMAIL_PORT")
+var EmailPortInt int
 
 var CfgAddr = ":3000"
 
@@ -30,7 +32,14 @@ func CfgInit() {
 
 	if EmailPort == "" {
 		log.Println("No email port")
-		EmailHost = "587"
+		EmailPortInt = 587
+	} else {
+		var err error
+		EmailPortInt, err = strconv.Atoi(EmailPort)
+		if err != nil {
+			log.Println("Invalid email port")
+			EmailPortInt = 587
+		}
 	}
 
 	// Mongo ENV variables
