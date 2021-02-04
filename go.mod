@@ -18,11 +18,13 @@ require (
 	github.com/kataras/go-errors v0.0.3
 	github.com/kidstuff/mongostore v0.0.0-20181113001930-e650cd85ee4b
 	github.com/mattn/go-isatty v0.0.9
+	github.com/spf13/viper v1.7.1 // indirect
 	github.com/ugorji/go v1.1.7
+	go.mongodb.org/mongo-driver v1.4.6 // indirect
 	golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a
 	gopkg.in/go-playground/validator.v8 v8.18.2
 	gopkg.in/kataras/go-sessions.v0 v0.0.7
 	gopkg.in/mail.v2 v2.3.1
 	gopkg.in/mgo.v2 v2.0.0-20160818020120-3f83fa500528
-	gopkg.in/yaml.v2 v2.2.2
+	gopkg.in/yaml.v2 v2.2.8
 )
