@@ -46,8 +46,8 @@ export class ResultsComponent implements OnInit {
 
   get registrations() {
     const stats = this.stats;
-    const totalMales = stats.othermales + stats.y15males + stats.y16males + stats.y17males + stats.y18males;
-    const totalFemales = stats.otherfemales + stats.y15females + stats.y16females + stats.y17females + stats.y18females;
+    const totalMales = stats.othermales + stats.y15males + stats.y16males + stats.y17males + stats.y18males + stats.y19males;
+    const totalFemales = stats.otherfemales + stats.y15females + stats.y16females + stats.y17females + stats.y18females + stats.y19females;
     return [{
       name: 'Males',
       value: totalMales,
@@ -59,8 +59,8 @@ export class ResultsComponent implements OnInit {
 
   get hearts() {
     const stats = this.stats;
-    const totalMaleHearts = stats.othermaleHearts + stats.y15maleHearts + stats.y16maleHearts + stats.y17maleHearts + stats.y18maleHearts;
-    const totalFemaleHearts = stats.otherfemaleHearts + stats.y15femaleHearts + stats.y16femaleHearts + stats.y17femaleHearts + stats.y18femaleHearts;
+    const totalMaleHearts = stats.othermaleHearts + stats.y15maleHearts + stats.y16maleHearts + stats.y17maleHearts + stats.y18maleHearts + stats.y19maleHearts;
+    const totalFemaleHearts = stats.otherfemaleHearts + stats.y15femaleHearts + stats.y16femaleHearts + stats.y17femaleHearts + stats.y18femaleHearts + stats.y19femaleHearts;
     return [{
       name: 'Males',
       value: totalMaleHearts,
@@ -86,6 +86,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y18',
       value: stats.y18femaleHearts,
+    }, {
+      name: 'Y19',
+      value: stats.y19femaleHearts,
     }].reverse();
 
   }
@@ -107,6 +110,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y18',
       value: stats.y18maleHearts,
+    }, {
+      name: 'Y19',
+      value: stats.y19maleHearts,
     }].reverse();
   }
 
@@ -127,6 +133,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y18',
       value: stats.y18females,
+    }, {
+      name: 'Y19',
+      value: stats.y19females,
     }].reverse();
 
   }
@@ -148,6 +157,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y18',
       value: stats.y18males,
+    }, {
+      name: 'Y19',
+      value: stats.y19males,
     }].reverse();
   }
 
