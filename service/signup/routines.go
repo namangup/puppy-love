@@ -88,7 +88,7 @@ func MailerService(Db PuppyDb, mail_channel chan User) {
 		m.SetHeader("Subject", "Puppy Love authentication code")
 		m.SetBody("text/plain", msg)
 
-		d := gomail.Dialer{Host: EmailHost, Port: EmailPortInt}
+		d := gomail.NewDialer(EmailHost, EmailPortInt, EmailUser, EmailPass)
 		if err := d.DialAndSend(m); err != nil {
 			log.Println("ERROR: while mailing user ", u.Email, " ", u.Id)
 			log.Println(err)
