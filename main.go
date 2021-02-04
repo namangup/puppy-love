@@ -10,13 +10,9 @@ import (
 	"github.com/pclubiitk/puppy-love/utils"
 
 	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
-
-func executeFirst(c *gin.Context) {
-	// fmt.Println(string(ctx.Path()[:]))
-	// ctx.Next()
-}
 
 func main() {
 	config.CfgInit()
@@ -32,11 +28,13 @@ func main() {
 	utils.Randinit()
 
 	// set up session db
-	store := sessions.NewCookieStore([]byte(config.CfgAdminPass))
+	store := cookie.NewStore([]byte(config.CfgAdminPass))
 
 	// iris.Config.Gzip = true
 	r := gin.Default()
 	r.Use(sessions.Sessions("mysession", store))
 	router.PuppyRoute(r, mongoDb)
-	r.Run(config.CfgAddr)
+	if err := r.Run(config.CfgAddr); err != nil {
+		fmt.Println("[Error] " + err.Error())
+	}
 }
