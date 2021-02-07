@@ -22,8 +22,10 @@
         </button>
         <hr>
         <a mat-button routerLink="/about"> About the platform </a>
-        <a mat-button href="https://github.com/pclubiitk/puppy-love"> Source Code </a>
-        <a mat-button href="http://pclub.in"> pclub.in </a>
+        <a mat-button href="https://github.com/pclubiitk/puppy-love" target="_blank"> Source Code </a>
+        <a mat-button href="/assets/report.pdf" target="_blank"> Algorithm Report </a>
+        <a mat-button href="https://pclub.in" target="_blank"> pclub.in </a>
+        <a mat-button href="https://www.facebook.com/groups/pclubiitk/" target="_blank"> PClub's Facebook Group </a>
       </mat-card-content>
     </mat-card>
 
@@ -60,11 +62,11 @@
         </div>
         <button mat-button (click)="onSave()" *ngIf="!user.submitted">
           <mat-icon>save</mat-icon>
-          Save your choices!
+          Save your choices
         </button>
         <button mat-button (click)="onSubmit()" *ngIf="!user.submitted">
           <mat-icon>sentiment_very_satisfied</mat-icon>
-          Lock and submit!
+          Lock all choices and submit
         </button>
         <hr *ngIf="!user.submitted">
         <div fxLayout="row" *ngIf="maleHearts(user).length !== 0">

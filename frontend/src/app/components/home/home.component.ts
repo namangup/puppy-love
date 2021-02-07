@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    if(!window.confirm('This will finalize your choices, you cannot change them afterwards. Proceed?')) {
+    if(!window.confirm('This will finalize all your choices. You cannot add or remove people from your choices afterwards. Proceed?')) {
       // If you've seen this, you can assume that you've understood all the code here.
       return;
     }
