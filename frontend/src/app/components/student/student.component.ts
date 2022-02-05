@@ -3,9 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 function ImageURL(rollnum: string, userid: string) {
     const iitkhome = `https://home.iitk.ac.in/~${ userid }/dp`;
-    const pcluboaimage = `https://search.pclub.in/oaphoto/${ rollnum }_0.jpg`;
-    const oaimage = `https://oa.cc.iitk.ac.in/Oa/Jsp/Photo/${ rollnum }_0.jpg`;
-    return `url("${ iitkhome }"), url("${ pcluboaimage }"), url("${ oaimage }")`;
+    const pcluboaimage = `https://photos.pclub.in/oaphoto/${ rollnum }_0.jpg`;
+    return `url("${ iitkhome }"), url("${ pcluboaimage }")`;
 }
 
 @Component({

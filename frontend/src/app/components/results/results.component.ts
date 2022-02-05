@@ -8,9 +8,8 @@ import { MainService, Stats } from '../../services/main.service';
 
 function ImageURL(rollnum: string, userid: string) {
     const iitkhome = `https://home.iitk.ac.in/~${ userid }/dp`;
-    const pcluboaimage = `https://search.pclub.in/oaphoto/${ rollnum }_0.jpg`;
-    const oaimage = `https://oa.cc.iitk.ac.in/Oa/Jsp/Photo/${ rollnum }_0.jpg`;
-    return `url("${ iitkhome }"), url("${ pcluboaimage }"), url("${ oaimage }")`;
+    const pcluboaimage = `https://photos.pclub.in/oaphoto/${ rollnum }_0.jpg`;
+    return `url("${ iitkhome }"), url("${ pcluboaimage }")`;
 }
 
 @Component({
@@ -47,8 +46,8 @@ export class ResultsComponent implements OnInit {
 
   get registrations() {
     const stats = this.stats;
-    const totalMales = stats.othermales + stats.y17males + stats.y18males + stats.y19males + stats.y20males;
-    const totalFemales = stats.otherfemales + stats.y17females + stats.y18females + stats.y19females + stats.y20males;
+    const totalMales = stats.othermales + stats.y18males + stats.y19males + stats.y20males + stats.y21males;
+    const totalFemales = stats.otherfemales + stats.y18females + stats.y19females + stats.y20females + stats.y21females;
     return [{
       name: 'Males',
       value: totalMales,
@@ -60,8 +59,8 @@ export class ResultsComponent implements OnInit {
 
   get hearts() {
     const stats = this.stats;
-    const totalMaleHearts = stats.othermaleHearts + stats.y17maleHearts + stats.y18maleHearts + stats.y19maleHearts + stats.y20maleHearts;
-    const totalFemaleHearts = stats.otherfemaleHearts + stats.y17femaleHearts + stats.y18femaleHearts + stats.y19femaleHearts + stats.y20femaleHearts;
+    const totalMaleHearts = stats.othermaleHearts + stats.y18maleHearts + stats.y19maleHearts + stats.y20maleHearts + stats.y21maleHearts;
+    const totalFemaleHearts = stats.otherfemaleHearts + stats.y18femaleHearts + stats.y19femaleHearts + stats.y20femaleHearts + stats.y21femaleHearts;
     return [{
       name: 'Males',
       value: totalMaleHearts,
@@ -76,9 +75,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.otherfemaleHearts,
     }, {
-      name: 'Y17',
-      value: stats.y17femaleHearts,
-    }, {
       name: 'Y18',
       value: stats.y18femaleHearts,
     }, {
@@ -87,6 +83,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y20',
       value: stats.y20femaleHearts,
+    }, {
+        name: 'Y21',
+        value: stats.y21femaleHearts,
     }].reverse();
 
   }
@@ -97,9 +96,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.othermaleHearts,
     }, {
-      name: 'Y17',
-      value: stats.y17maleHearts,
-    }, {
       name: 'Y18',
       value: stats.y18maleHearts,
     }, {
@@ -108,6 +104,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y20',
       value: stats.y20maleHearts,
+    }, {
+        name: 'Y21',
+        value: stats.y21maleHearts,
     }].reverse();
   }
 
@@ -117,9 +116,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.otherfemales,
     }, {
-      name: 'Y17',
-      value: stats.y17females,
-    }, {
       name: 'Y18',
       value: stats.y18females,
     }, {
@@ -128,6 +124,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y20',
       value: stats.y20females,
+    }, {
+        name: 'Y21',
+        value: stats.y21females,
     }].reverse();
 
   }
@@ -138,9 +137,6 @@ export class ResultsComponent implements OnInit {
       name: 'Others',
       value: stats.othermales,
     }, {
-      name: 'Y17',
-      value: stats.y17males,
-    }, {
       name: 'Y18',
       value: stats.y18males,
     }, {
@@ -149,6 +145,9 @@ export class ResultsComponent implements OnInit {
     }, {
       name: 'Y20',
       value: stats.y20males,
+    }, {
+        name: 'Y21',
+        value: stats.y21males,
     }].reverse();
   }
 
